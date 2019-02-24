@@ -1,25 +1,24 @@
 import React, { Component } from "react";
-import logo from "../../assets/images/logo.svg";
+
+import Image from "../image";
+import Header from "../header";
+import { Section } from "./elements";
+import { ControlContainer } from "../elements";
+import images from "../../constants/images";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <main>
+        <Header />
+        <Section>
+          <ControlContainer type="content">
+            {images.map((val, key) => (
+              <Image {...val} key={key} />
+            ))}
+          </ControlContainer>
+        </Section>
+      </main>
     );
   }
 }
